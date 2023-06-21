@@ -9,8 +9,8 @@ spring:
     serialization:
       fail-on-empty-beans: false
   datasource:
-#    url: jdbc:postgresql://185.185.80.245/eventSystems
-        url: jdbc:postgresql://localhost:5432/eventSystems
+    #    url: jdbc:postgresql://185.185.80.245/eventSystems
+    url: jdbc:postgresql://localhost:5432/eventSystems
     username: admin
     password: Turgun1970$
     driver-class-name: org.postgresql.Driver
