@@ -1,0 +1,40 @@
+server:
+  port: 79
+  ssl:
+    enabled: true
+    certificate: /etc/letsencrypt/live/api.teda.uz/fullchain.pem
+    certificate-private-key: /etc/letsencrypt/live/api.teda.uz/privkey.pem
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  datasource:
+#    url: jdbc:postgresql://185.185.80.245/eventSystems
+        url: jdbc:postgresql://localhost:5432/eventSystems
+    username: admin
+    password: Turgun1970$
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
+  mvc:
+    servlet:
+      path: /api
+  servlet:
+    multipart:
+      max-request-size: 5MB
+      max-file-size: 5MB
+page:
+  size: 20
+jwt:
+  secretKey: turgun1970
+  expireDate: 864000000
+debug: true
+#company:
+#  department:
+#    id: 1

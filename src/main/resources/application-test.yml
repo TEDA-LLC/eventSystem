@@ -1,0 +1,18 @@
+server:
+  port: 78
+  ssl:
+    enabled: false
+spring:
+  datasource:
+    url: jdbc:postgresql://185.185.80.245/eventSystems
+    username: admin
+    password: Turgun1970$
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never
