@@ -1,10 +1,8 @@
 package com.example.eventsystem.dto;
 
 import com.example.eventsystem.model.enums.MessageType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
