@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author * Sunnatullayev Mahmudnazar *  * tedabot *  * 11:50 *
- */
 @Repository
 public interface UserHistoryRepository extends JpaRepository<UserHistory, Long> {
     @Query(value = "select count(id) as amount from user_history where product_id =:id",nativeQuery = true)

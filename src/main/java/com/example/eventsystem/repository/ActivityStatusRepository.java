@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface ActivityStatusRepository extends JpaRepository<ActivityStatus, Long> {
 
-    @Query(value = "SELECT * FROM activity_status s where s.id = ?1  ORDER BY period DESC LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM activity_status s where s.client_id = ?1  ORDER BY period DESC LIMIT 1", nativeQuery = true)
     Optional<ActivityStatus> getLastActivity(Long id);
 
     @Query(value = "SELECT * FROM activity_status s where s.client_id = ?1  ORDER BY period DESC", nativeQuery = true)

@@ -25,8 +25,8 @@ public class ActivityStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private ActiveType firstCase;
-    private ActiveType secondCase;
+    @Enumerated(EnumType.STRING)
+    private ActiveType firstCase, secondCase;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime period = LocalDateTime.now();
     @JsonIgnore
