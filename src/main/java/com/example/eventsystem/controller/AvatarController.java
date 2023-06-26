@@ -2,14 +2,19 @@ package com.example.eventsystem.controller;
 
 import com.example.eventsystem.dto.ApiResponse;
 import com.example.eventsystem.dto.AvatarDTO;
+import com.example.eventsystem.model.Attachment;
 import com.example.eventsystem.model.Avatar;
 import com.example.eventsystem.model.Employee;
+import com.example.eventsystem.repository.AttachmentRepository;
 import com.example.eventsystem.service.AvatarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * @author Mansurov Abdusamad  *  07.12.2022  *  12:06   *  tedaSystem
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AvatarController {
     private final AvatarService avatarService;
+    private final AttachmentRepository attachmentRepository;
 
     @GetMapping
     public ResponseEntity<?> getAll(@RequestParam(defaultValue = "0") int page, @AuthenticationPrincipal Employee employee) {
