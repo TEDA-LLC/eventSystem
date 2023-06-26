@@ -55,7 +55,22 @@ public class CallService {
                 data(calls).
                 build();
     }
-
+    public ApiResponse<List<Call>> getAllForToday(Employee employee, int page) {
+        List<Call> callList = callRepository.getAllForToday(employee.getId());
+        if (callList.isEmpty()){
+            return ApiResponse.<List<Call>>builder().
+                    message("No calls found for today").
+                    status(200).
+                    success(true).
+                    build();
+        }
+        return ApiResponse.<List<Call>>builder().
+                message("Calls here").
+                status(200).
+                success(true).
+                data(callList).
+                build();
+    }
 
     public ApiResponse<Call> getOne(Long id, Employee employee) {
         Optional<Call> callOptional = callRepository.findById(id);

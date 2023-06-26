@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Mansurov Abdusamad  *  30.11.2022  *  13:36   *  tedaSystem
@@ -31,4 +32,7 @@ public interface CallRepository extends JpaRepository<Call, Long> {
 
     @Query(value = "select * from call where call.client_id = ?1 order by created_time desc  limit 1", nativeQuery = true)
     Call getLastCallByClient(Long clientId);
+
+    @Query(value = "select * from call where next_connection_date = current_date and employee_id = ?1", nativeQuery = true)
+    List<Call> getAllForToday(Long employeeId);
 }
